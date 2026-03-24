@@ -3,56 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Dog Directory — Helping you raise a happy dog</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Dog Directory — Preview (Password Required)</title>
+  <style>
+    body{font-family:system-ui,Arial;margin:0}
+    #auth-overlay{position:fixed;inset:0;background:#111a;display:flex;align-items:center;justify-content:center;z-index:9999}
+    .auth-box{background:white;padding:24px;border-radius:8px;max-width:420px;width:100%;text-align:center}
+    input{width:100%;padding:10px;margin-top:12px;border:1px solid #ddd;border-radius:6px}
+    button{margin-top:12px;padding:10px 16px;border:none;background:#2c5f8d;color:#fff;border-radius:6px;cursor:pointer}
+  </style>
 </head>
 <body>
+<div id="auth-overlay">
+  <div class="auth-box">
+    <h2>Preview access — password required</h2>
+    <p>Enter the preview password to continue.</p>
+    <input id="pw" type="password" placeholder="Password">
+    <button id="submit">Unlock preview</button>
+    <p style="margin-top:10px;color:#666;font-size:13px">Ask Pete if you need the password.</p>
+  </div>
+</div>
+<div id="site" style="display:none">
+<!-- START SITE CONTENT -->
+$(cat /root/.openclaw/.openclaw/workspace/preview_tmp/listing.html)
+<!-- END SITE CONTENT -->
+</div>
 <script>
-// Client-side preview password gate (sessionStorage)
 (function(){
-  var PASSWORD = 'ReviewDog-2026!';
-  try{
-    if(sessionStorage.getItem('dg_preview') === PASSWORD) return;
-    var attempt = prompt('Preview password:');
-    if(attempt === PASSWORD){ sessionStorage.setItem('dg_preview', PASSWORD); return; }
-    alert('Incorrect password. Contact Pete for access.');
-    document.documentElement.innerHTML = '<div style="font-family:system-ui,Arial;display:flex;align-items:center;justify-content:center;height:100vh;
-    text-align:center;
-    "><div><h1 style="font-size:22px;margin-bottom:8px">Preview locked</h1><p style="color:#666">You need the preview password to view this site.</p></div></div>';
-  }catch(e){ /* fail open if storage is blocked */ }
+  var PASSWORD='ReviewDog-2026!';
+  var overlay=document.getElementById('auth-overlay');
+  var site=document.getElementById('site');
+  var input=document.getElementById('pw');
+  var btn=document.getElementById('submit');
+  btn.addEventListener('click',function(){
+    if(input.value===PASSWORD){ overlay.style.display='none'; site.style.display='block'; } else { alert('Incorrect password'); }
+  });
+  input.addEventListener('keyup',function(e){ if(e.key==='Enter') btn.click(); });
 })();
 </script>
-  <header class="site-header">
-    <div class="container">
-      <h1>Dog Guide</h1>
-      <p class="tagline">Simple, practical advice for dog owners.</p>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <h2>Welcome to Dog Guide</h2>
-      <p>This is a preview of the Dog Directory site. Use the navigation to explore listings and flows. Everything is password-protected until you approve.</p>
-      <p class="cta"><a href="/listing.html">See sample listing</a></p>
-    </section>
-
-    <section class="about">
-      <h3>What we'll offer</h3>
-      <ul>
-        <li>Short, actionable guides for common dog problems</li>
-        <li>Product recommendations and comparison lists</li>
-        <li>Quick training tips and videos</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h3>Contact</h3>
-      <p>Want to help shape this site? Email: <strong>you@dogguide.com.au</strong> (placeholder)</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">© Dog Guide — Preview (password protected)</div>
-  </footer>
 </body>
 </html>
