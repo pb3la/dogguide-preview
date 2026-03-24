@@ -1,0 +1,9 @@
+:root{--bg:#f8f8f9;--accent:#2b8aef;--text:#222}
+*{box-sizing:border-box}body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:var(--text);background:var(--bg);margin:0}
+.container{max-width:900px;margin:0 auto;padding:24px}
+.site-header{background:#fff;padding:24px 0;border-bottom:1px solid #e6e6e8}
+.site-header h1{margin:0;color:var(--accent)}.tagline{color:#666;margin-top:6px}
+.hero{background:#fff;padding:40px;margin-top:24px;border-radius:8px}
+.hero h2{margin-top:0}.cta a{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none}
+.about{margin-top:18px;background:#fff;padding:20px;border-radius:8px}
+.site-footer{padding:20px;text-align:center;color:#777;margin-top:24px}

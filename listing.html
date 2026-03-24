@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Edward Reserve Dog Park | Newcastle | Dog Directory Australia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c5f8d;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #2c5f8d;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .breadcrumb a {
+            color: #718096;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: #2c5f8d;
+        }
+        
+        .breadcrumb span {
+            color: #a0aec0;
+            margin: 0 0.5rem;
+        }
+        
+        /* Listing Header */
+        .listing-header {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .listing-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .listing-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #718096;
+            font-size: 0.875rem;
+        }
+        
+        .rating {
+            color: #f39c12;
+            font-weight: 600;
+        }
+        
+        .category-badge {
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+        .listing-content {
+            padding: 2rem 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        /* Left Column */
+        .main-column {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .photo-gallery {
+            height: 400px;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-size: 1.125rem;
+        }
+        
+        .thumbnails {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: #f8fafc;
+        }
+        
+        .thumb {
+            width: 80px;
+            height: 80px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-size: 0.75rem;
+        }
+        
+        .thumb.active {
+            border: 3px solid #2c5f8d;
+        }
+        
+        .content-body {
+            padding: 2rem;
+        }
+        
+        .content-section {
+            margin-bottom: 2rem;
+        }
+        
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .content-section h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .content-section p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+        
+        .amenities-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+        
+        .amenity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4a5568;
+        }
+        
+        .amenity-icon {
+            font-size: 1.25rem;
+        }
+        
+        .rules-list {
+            list-style: none;
+        }
+        
+        .rules-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4a5568;
+        }
+        
+        .rules-list li:before {
+            content: "•";
+            color: #e67e22;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Reviews */
+        .review {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+        
+        .review-author {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .review-date {
+            color: #a0aec0;
+            font-size: 0.875rem;
+        }
+        
+        .review-rating {
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+        }
+        
+        .review-text {
+            color: #4a5568;
+            font-style: italic;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .info-card h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .info-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-label {
+            font-size: 0.75rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-value {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .map-placeholder {
+            height: 150px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #2c5f8d;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            transition: background 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: #1e4569;
+        }
+        
+        .cta-button.secondary {
+            background: white;
+            color: #2c5f8d;
+            border: 2px solid #2c5f8d;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #f0f4f8;
+        }
+        
+        .action-row {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 0.75rem;
+            background: #f0f4f8;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #4a5568;
+            transition: background 0.2s;
+        }
+        
+        .action-btn:hover {
+            background: #e2e8f0;
+        }
+        
+        /* Related Section */
+        .related-section {
+            padding: 3rem 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .related-section h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .related-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: box-shadow 0.2s;
+        }
+        
+        .related-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .related-card h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .related-card p {
+            font-size: 0.875rem;
+            color: #718096;
+        }
+        
+        /* Affiliate Section */
+        .affiliate-section {
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+        }
+        
+        .affiliate-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .affiliate-icon {
+            font-size: 3rem;
+        }
+        
+        .affiliate-content h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .affiliate-content p {
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+        
+        .affiliate-link {
+            color: #2c5f8d;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .affiliate-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: #a0aec0;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand span {
+            opacity: 0.6;
+            font-size: 1rem;
+            display: block;
+            margin-top: 0.5rem;
+        }
+        
+        .footer h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #3d566e;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .affiliate-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <span>🐕</span>
+                    Dog Directory Australia
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Browse by State</a></li>
+                    <li><a href="#">Browse by Category</a></li>
+                    <li><a href="#">Submit Listing</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="#">Home</a>
+            <span>›</span>
+            <a href="#">NSW</a>
+            <span>›</span>
+            <a href="#">Newcastle</a>
+            <span>›</span>
+            <a href="#">Dog Parks</a>
+            <span>›</span>
+            <span>King Edward Reserve</span>
+        </div>
+    </div>
+
+    <!-- Listing Header -->
+    <div class="listing-header">
+        <div class="container">
+            <h1 class="listing-title">King Edward Reserve Dog Park</h1>
+            <div class="listing-meta">
+                <span class="rating">★★★★★ 4.9 / 5</span>
+                <span>·</span>
+                <span>127 reviews</span>
+                <span>·</span>
+                <span class="category-badge">🌳 Dog Park</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="listing-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="main-column">
+                    <div class="photo-gallery">
+                        [Photo: Dog running with harbor view]
+                    </div>
+                    <div class="thumbnails">
+                        <div class="thumb active">Photo 1</div>
+                        <div class="thumb">Photo 2</div>
+                        <div class="thumb">Photo 3</div>
+                        <div class="thumb">Photo 4</div>
+                        <div class="thumb">Photo 5</div>
+                    </div>
+                    
+                    <div class="content-body">
+                        <div class="content-section">
+                            <h2>About</h2>
+                            <p>King Edward Reserve is Newcastle's premier off-leash dog park, offering stunning harbor views and a fully fenced area for worry-free play. The park is divided into two sections: a larger area for confident dogs and a smaller, quieter section for nervous pups or small breeds.</p>
+                            <p>Benches line the perimeter so owners can relax while dogs play. The location is particularly popular at sunrise and sunset when the harbor views are at their best. The park is maintained by Newcastle City Council and is one of the most popular dog spots in the region.</p>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h2>Amenities</h2>
+                            <div class="amenities-list">
+                                <div class="amenity">
+                                    <span class="amenity-icon">🌳</span>
+                                    <span>Fully fenced (two separate areas)</span>
+                                </div>
+                                <div class="amenity">
+                                    <span class="amenity-icon">🚰</span>
+                                    <span>Fresh drinking water for dogs</span>
+                                </div>
+                                <div class="amenity">
+                                    <span class="amenity-icon">🗑️</span>
+                                    <span>Bag dispensers and bins</span>
+                                </div>
+                                <div class="amenity">
+                                    <span class="amenity-icon">🪑</span>
+                                    <span>Benches and shade</span>
+                                </div>
+                                <div class="amenity">
+                                    <span class="amenity-icon">🅿️</span>
+                                    <span>Street parking available</span>
+                                </div>
+                                <div class="amenity">
+                                    <span class="amenity-icon">🚽</span>
+                                    <span>Public toilets in adjacent park</span>
+                                </div>
+                                <div class="amenity">
+                                    <span class="amenity-icon">🚪</span>
+                                    <span>Multiple entry/exit gates</span>
+                                </div>
+                                <div class="amenity">
+                                    <span class="amenity-icon">🐕</span>
+                                    <span>Small dog dedicated area</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h2>Rules & Guidelines</h2>
+                            <ul class="rules-list">
+                                <li>Dogs must be under effective control at all times</li>
+                                <li>Please clean up after your dog — bags provided</li>
+                                <li>Aggressive dogs should be kept on leash or removed</li>
+                                <li>Children must be supervised</li>
+                                <li>Respect other park users</li>
+                                <li>No food inside the fenced areas</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h2>Reviews (127)</h2>
+                            <div class="review">
+                                <div class="review-header">
+                                    <span class="review-author">Sarah M.</span>
+                                    <span class="review-date">3 days ago</span>
+                                </div>
+                                <div class="review-rating">★★★★★ Beautiful spot!</div>
+                                <p class="review-text">"The harbor views are incredible and my golden retriever loves the space to run. Gets busy on weekends but worth it. The small dog area is perfect for our puppy to build confidence."</p>
+                            </div>
+                            <div class="review">
+                                <div class="review-header">
+                                    <span class="review-author">Mike T.</span>
+                                    <span class="review-date">1 week ago</span>
+                                </div>
+                                <div class="review-rating">★★★★☆ Great but parking can be tricky</div>
+                                <p class="review-text">"Love this park but recommend arriving before 9am on Saturdays to get a parking spot. The small dog area is perfect for our anxious pup. Great community of regulars here too!"</p>
+                            </div>
+                            <div class="review">
+                                <div class="review-header">
+                                    <span class="review-author">Jessica L.</span>
+                                    <span class="review-date">2 weeks ago</span>
+                                </div>
+                                <div class="review-rating">★★★★★ Best dog park in Newcastle</div>
+                                <p class="review-text">"We've tried all the dog parks in Newcastle and this is hands down the best. Fully fenced so I can relax, beautiful views, and always clean. My border collie gives it 5 barks!"</p>
+                            </div>
+                            <a href="#" style="color: #2c5f8d; font-weight: 600;">Read all 127 reviews →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <div class="info-card">
+                        <div class="map-placeholder">[Map]</div>
+                        <a href="#" class="cta-button">📍 Get Directions</a>
+                        
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <div class="info-content">
+                                <div class="info-label">Address</div>
+                                <div class="info-value">The Esplanade, King Edward Park<br>Newcastle NSW 2300</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span class="info-icon">🕐</span>
+                            <div class="info-content">
+                                <div class="info-label">Hours</div>
+                                <div class="info-value">Open 24 hours</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <span class="info-icon">🌐</span>
+                            <div class="info-content">
+                                <div class="info-label">Website</div>
+                                <div class="info-value">newcastle.nsw.gov.au</div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-row">
+                            <button class="action-btn">❤️ Save</button>
+                            <button class="action-btn">↗️ Share</button>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Suggest an Edit</h3>
+                        <p style="color: #718096; font-size: 0.875rem; margin-bottom: 1rem;">Seen something that's changed? Help us keep listings up to date.</p>
+                        <a href="#" class="cta-button secondary">✏️ Edit Listing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Section -->
+    <div class="related-section">
+        <div class="container">
+            <h2>You might also like</h2>
+            <div class="related-grid">
+                <a href="#" class="related-card">
+                    <h4>Bogey Hole</h4>
+                    <p>Historic ocean bath, popular with dogs and their humans at sunrise. Off-leash friendly.</p>
+                </a>
+                <a href="#" class="related-card">
+                    <h4>Adamstown Dog Park</h4>
+                    <p>Fully fenced community park with agility equipment and plenty of shade.</p>
+                </a>
+                <a href="#" class="related-card">
+                    <h4>Stockton Beach</h4>
+                    <p>Dog-friendly beach with off-leash areas. Perfect for a run and swim combo.</p>
+                </a>
+            </div>
+            
+            <h2 style="margin-top: 2rem;">Nearby in Newcastle</h2>
+            <div class="related-grid">
+                <a href="#" class="related-card">
+                    <h4>The Dog House Daycare</h4>
+                    <p>⭐ 4.8 · 🏠 Daycare · 📍 1.2km away</p>
+                </a>
+                <a href="#" class="related-card">
+                    <h4>Merewether Vet Clinic</h4>
+                    <p>⭐ 4.6 · 🩺 Vet · 📍 0.8km away</p>
+                </a>
+                <a href="#" class="related-card">
+                    <h4>Happy Paws Grooming</h4>
+                    <p>⭐ 4.9 · ✂️ Groomer · 📍 1.5km away</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Affiliate Section -->
+    <div class="affiliate-section">
+        <div class="container">
+            <div class="affiliate-card">
+                <div class="affiliate-icon">🐕</div>
+                <div class="affiliate-content">
+                    <h3>Thinking about pet insurance?</h3>
+                    <p>Accidents happen at the park. Compare plans from top Australian providers and protect your pup before you need it. Peace of mind for less than a coffee per week.</p>
+                    <a href="#" class="affiliate-link">Compare pet insurance plans →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">
+                        🐕 Dog Directory Australia
+                        <span>Everything for your dog. All in one place.</span>
+                    </div>
+                </div>
+                <div>
+                    <h4>Browse</h4>
+                    <ul>
+                        <li><a href="#">By State</a></li>
+                        <li><a href="#">By Category</a></li>
+                        <li><a href="#">Featured</a></li>
+                        <li><a href="#">Recently Added</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Pet Insurance Guide</a></li>
+                        <li><a href="#">Best Dog Food 2026</a></li>
+                        <li><a href="#">Puppy Checklist</a></li>
+                        <li><a href="#">Senior Dog Care</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>For Business</h4>
+                    <ul>
+                        <li><a href="#">Add Your Listing</a></li>
+                        <li><a href="#">Claim Listing</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 Dog Directory Australia. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

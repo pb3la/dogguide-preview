@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dog Directory — Helping you raise a happy dog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<script>
+// Client-side preview password gate (sessionStorage)
+(function(){
+  var PASSWORD = 'ReviewDog-2026!';
+  try{
+    if(sessionStorage.getItem('dg_preview') === PASSWORD) return;
+    var attempt = prompt('Preview password:');
+    if(attempt === PASSWORD){ sessionStorage.setItem('dg_preview', PASSWORD); return; }
+    alert('Incorrect password. Contact Pete for access.');
+    document.documentElement.innerHTML = '<div style="font-family:system-ui,Arial;display:flex;align-items:center;justify-content:center;height:100vh;
+    text-align:center;
+    "><div><h1 style="font-size:22px;margin-bottom:8px">Preview locked</h1><p style="color:#666">You need the preview password to view this site.</p></div></div>';
+  }catch(e){ /* fail open if storage is blocked */ }
+})();
+</script>
+  <header class="site-header">
+    <div class="container">
+      <h1>Dog Guide</h1>
+      <p class="tagline">Simple, practical advice for dog owners.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Welcome to Dog Guide</h2>
+      <p>This is a preview of the Dog Directory site. Use the navigation to explore listings and flows. Everything is password-protected until you approve.</p>
+      <p class="cta"><a href="/listing.html">See sample listing</a></p>
+    </section>
+
+    <section class="about">
+      <h3>What we'll offer</h3>
+      <ul>
+        <li>Short, actionable guides for common dog problems</li>
+        <li>Product recommendations and comparison lists</li>
+        <li>Quick training tips and videos</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h3>Contact</h3>
+      <p>Want to help shape this site? Email: <strong>you@dogguide.com.au</strong> (placeholder)</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© Dog Guide — Preview (password protected)</div>
+  </footer>
+</body>
+</html>
