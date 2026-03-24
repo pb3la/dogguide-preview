@@ -1,44 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Dog Directory — Preview (Password Required)</title>
-  <style>
-    body{font-family:system-ui,Arial;margin:0}
-    #auth-overlay{position:fixed;inset:0;background:#111a;display:flex;align-items:center;justify-content:center;z-index:9999}
-    .auth-box{background:white;padding:24px;border-radius:8px;max-width:420px;width:100%;text-align:center}
-    input{width:100%;padding:10px;margin-top:12px;border:1px solid #ddd;border-radius:6px}
-    button{margin-top:12px;padding:10px 16px;border:none;background:#2c5f8d;color:#fff;border-radius:6px;cursor:pointer}
-  </style>
-</head>
-<body>
-<div id="auth-overlay">
-  <div class="auth-box">
-    <h2>Preview access — password required</h2>
-    <p>Enter the preview password to continue.</p>
-    <input id="pw" type="password" placeholder="Password">
-    <button id="submit">Unlock preview</button>
-    <p style="margin-top:10px;color:#666;font-size:13px">Ask Pete if you need the password.</p>
-  </div>
-</div>
-<div id="site" style="display:none">
-<!-- START SITE CONTENT -->
-$(cat /root/.openclaw/.openclaw/workspace/preview_tmp/listing.html)
-<!-- END SITE CONTENT -->
-</div>
-<script>
-(function(){
-  var PASSWORD='ReviewDog-2026!';
-  var overlay=document.getElementById('auth-overlay');
-  var site=document.getElementById('site');
-  var input=document.getElementById('pw');
-  var btn=document.getElementById('submit');
-  btn.addEventListener('click',function(){
-    if(input.value===PASSWORD){ overlay.style.display='none'; site.style.display='block'; } else { alert('Incorrect password'); }
-  });
-  input.addEventListener('keyup',function(e){ if(e.key==='Enter') btn.click(); });
-})();
-</script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Dog Directory Preview</title><link rel=stylesheet href="/styles.css"></head><body><header class=site-header><div class=container><h1>Dog Directory Preview</h1></div></header><main class=container><section class=hero><h2>Preview build</h2><p>Regions</p><ul><li><a href="/regions/sydney.html">Sydney</a></li>
+<li><a href="/regions/wollongong.html">Wollongong</a></li>
+<li><a href="/regions/newcastle.html">Newcastle</a></li>
+<li><a href="/regions/lake-macquarie.html">Lake Macquarie</a></li>
+<li><a href="/regions/central-coast.html">Central Coast</a></li>
+<li><a href="/regions/port-macquarie.html">Port Macquarie</a></li></ul><h3>Categories</h3><ul><li><a href="/categories/dog-parks.html">🌳 Dog Parks</a></li>
+<li><a href="/categories/dog-beaches.html">🏖️ Dog Beaches</a></li>
+<li><a href="/categories/groomers.html">✂️ Groomers</a></li>
+<li><a href="/categories/daycare-boarding.html">🏠 Daycare & Boarding</a></li>
+<li><a href="/categories/vets.html">🩺 Vets & Specialists</a></li>
+<li><a href="/categories/training.html">🎓 Training</a></li></ul><h3>Featured</h3><ul><li><a href="/featured/lm-speers-point-park.html">Speers Point Park Dog Exercise Area</a></li>
+<li><a href="/featured/new-horseshoe-beach.html">Horseshoe Beach</a></li>
+<li><a href="/featured/cc-tuggerah-dog-park.html">Tuggerah Dog Park</a></li></ul></section></main><footer class=site-footer><div class=container>© Dog Directory</div></footer></body></html>
